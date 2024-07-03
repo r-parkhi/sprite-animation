@@ -1,0 +1,59 @@
+//VARIABLES
+//images
+var fence
+var trampoline
+var qBubble
+var aBubble
+//sprites
+
+//animation
+var qx = -100
+
+//preload images
+function preload()
+{
+  fence = loadImage('assets/fence.png');
+  trampoline = loadImage('assets/trampoline.png');
+  qBubble = loadImage('assets/qBubble.png');
+  aBubble = loadImage('assets/aBubble.png');
+}
+  
+function setup() {
+  createCanvas(500, 500);
+  noStroke();
+}
+
+function draw() {
+  //BACKGROUND
+  background('#91d2e6');
+  //grass
+  fill('#1ea815');
+  rect(0, 350, 500, 500);
+  //fence
+  image(fence, -25, 250, 525, 150);
+  //trampoline shadow
+  fill('#178510');
+  ellipse(340, 415, 250, 55);
+
+  //trampoline
+  image(trampoline, 230, 250, 270, 270);
+  
+  //SPEECH BUBBLES
+  fill('black');
+  textAlign(CENTER);
+  //pig speech
+  image(qBubble, qx, 125, 150, 150);
+  textSize(17);
+  text('What do you call a sheep on a trampoline?', qx+30, 150, 100, 150);
+  if(qx<60)
+  {
+    qx+=2;
+  }
+  
+  //sheep speech
+  image(aBubble, 230, 20, 170, 170)
+  
+  textSize(25);
+  text('A wooly jumper!', 275, 100, 100, 100);
+  
+}
